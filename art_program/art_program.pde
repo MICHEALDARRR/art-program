@@ -1,21 +1,17 @@
-float artSurfaceX, artSurfaceY, artSurfaceWidth, artSurfaceHeight;
+float artSurfaceX, artSurfaceY, artSurfaceWidth, artSurfaceHeight, drawingDiameter;
 Boolean draw=false;
 
 void setup() {
   fullScreen();
   population();
-  artSurfaceX = displayWidth*0;
-  artSurfaceY = displayHeight*0;
-  artSurfaceWidth = displayWidth*3/4;
-  artSurfaceHeight = displayHeight*4/5;
   //
    rect(artSurfaceX, artSurfaceY, artSurfaceWidth, artSurfaceHeight);
 }//End setup()
 
 void draw() {
-  if ( draw == true )
+  if ( draw == true &&  mouseX>artSurfaceX && mouseX<artSurfaceX+artSurfaceWidth && mouseY>artSurfaceY && mouseY<artSurfaceY+artSurfaceHeight)
   {
-    line(mouseX, mouseY, pmouseX, pmouseY);
+    ellipse(mouseX, mouseY, drawingDiameter, drawingDiameter); //This code-line is for line vs. circle
   }//End line draw
 }//End draw()
 
