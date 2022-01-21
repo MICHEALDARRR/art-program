@@ -1,22 +1,29 @@
-float artSurfaceX, artSurfaceY, artSurfaceWidth, artSurfaceHeight, drawingDiameter;
+//Global Variables
+float drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight, drawingDiameter;
 Boolean draw=false;
 
 void setup() {
-  fullScreen();
+  size (500, 600); //fullScreen(), dispayWidth, displayHeight
   population();
+  quitButtonSetup(); //Contains Separate Population
+  textSetup();
   //
-   rect(artSurfaceX, artSurfaceY, artSurfaceWidth, artSurfaceHeight);
+  rect(drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight);
 }//End setup()
 
 void draw() {
-  if ( draw == true &&  mouseX>artSurfaceX && mouseX<artSurfaceX+artSurfaceWidth && mouseY>artSurfaceY && mouseY<artSurfaceY+artSurfaceHeight)
+  //quitButtonDraw();
+  if ( draw == true && mouseX>drawingSurfaceX && mouseX<drawingSurfaceX+drawingSurfaceWidth && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight)
   {
     ellipse(mouseX, mouseY, drawingDiameter, drawingDiameter); //This code-line is for line vs. circle
   }//End line draw
 }//End draw()
 
 void mousePressed() {
-  if ( mouseX>artSurfaceX && mouseX<artSurfaceX+artSurfaceWidth && mouseY>artSurfaceY && mouseY<artSurfaceY+artSurfaceHeight )
+  //
+  quitButtonMousePressed();
+  //
+  if ( mouseX>drawingSurfaceX && mouseX<drawingSurfaceX+drawingSurfaceWidth && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight )
   {
     if (draw == false)
     {
@@ -24,9 +31,9 @@ void mousePressed() {
     } else {
       draw = false;
     }//End draw boolean
-  }//End line draw  
+  }//End line draw
+  
 }//End mousePressed()
 
 void keyPressed() {
-  
 }//End keyPressed()
